@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosso Dia Especial</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Nosso Dia Especial</h1>
+    </header>
+
+    <div class="container">
+        <section class="photos">
+            <img src="img1.jpg" alt="Imagem 1">
+            <img src="img2.jpg" alt="Imagem 2">
+            <img src="img3.jpg" alt="Imagem 3">
+            <img src="img4.jpg" alt="Imagem 4">
+            <img src="img5.jpg" alt="Imagem 5">
+        </section>
+        <section class="phrase">
+            <p>"Em mil vidas que eu possa viver, em cada uma delas, você será meu eterno grande amor. Não importa o tempo ou o lugar, eu te amo, para sempre, em todas elas."</p>
+        </section>
+
+        <section class="timer">
+            <p>Estamos juntos há <span id="timeTogether"></span></p>
+        </section>
+    </div>
+
+    <footer>
+        <p>Feito com amor por seu amor. <a href="#">Personalize aqui</a>.</p>
+    </footer>
+
+    <script>
+        // Defina a data de início do relacionamento (5 de dezembro de 2024, 00:00:00)
+        const startDate = new Date("2024-12-05T00:00:00");  
+
+        function updateTimer() {
+            const now = new Date();
+            const timeDiff = now - startDate; // Diferença em milissegundos
+
+            // Calculando o tempo em dias, horas, minutos e segundos
+            const totalSeconds = Math.floor(timeDiff / 1000);
+            const totalMinutes = Math.floor(totalSeconds / 60);
+            const totalHours = Math.floor(totalMinutes / 60);
+            const totalDays = Math.floor(totalHours / 24);
+
+            const hours = totalHours % 24;
+            const minutes = totalMinutes % 60;
+            const seconds = totalSeconds % 60;
+
+            // Atualizando o conteúdo na página
+            document.getElementById('timeTogether').textContent =
+                `${totalDays} dias, ${hours} horas, ${minutes} minutos e ${seconds} segundos`;
+        }
+
+        // Atualizar a cada segundo
+        setInterval(updateTimer, 1000);
+    </script>
+</body>
+</html>
